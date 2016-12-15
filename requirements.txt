@@ -1,5 +1,5 @@
 Django==1.10.4
-numpy==1.11.2
+numpy==1.9.2
 PyYAML==3.12
 dj-database-url==0.3.0
 dj-static==0.0.5
@@ -16,6 +16,6 @@ monty==0.9.6
 pymatgen==4.5.3
 spglib==1.9.8.20
 requests_oauthlib==0.6.1
-scipy==0.18.1
+scipy==0.15.1
 matplotlib==1.5.3
 palettable==2.1.1
