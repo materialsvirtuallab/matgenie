@@ -1,0 +1,111 @@
+{% extends "templates/base.html" %} {% block title %} mavrl: matgenie {% endblock title %} {% block top_javascript %}
+<script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="{{STATIC_URL}}js/matgenie.js"></script>
+
+{% endblock %} {% block custom_css %}
+<link href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<link href="{{ STATIC_URL }}css/matgenie.css" rel="stylesheet" type="text/css" /> {% endblock custom_css %} {% block content %}
+<h1>matgenie<sup class="sup-beta">beta</sup></h1>
+<h2>Powered by <a href="http://pymatgen.org/"><img id="img-pymatgen"
+            src="{{ STATIC_URL }}images/pymatgen.png"/></a></h2>
+
+<div id="div-main">
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-convert">Convert files</a></li>
+            <li><a href="#tabs-symmetry">Symmetry analysis</a></li>
+            <li><a href="#tabs-compare">Compare structures</a></li>
+            <li><a href="#tabs-xrd">Calculate XRD</a></li>
+            <li><a href="#tabs-surfaces">Generate surfaces</a></li>
+        </ul>
+        <div id="tabs-convert">
+            <p>Convert between structure file formats. Supported input formats are CIF, POSCAR, CSSR and Materials Project mson. File format is automatically detected from filename.</p>
+            <form action="/matgenie/rest/convert/" id="form-convert" enctype="multipart/form-data" method="post">
+                <p>
+                    Output format:
+                    <select name="output-format">
+                        <option value="POSCAR" selected="selected">POSCAR</option>
+                        <option value="CIF">CIF</option>
+                        <option value="CSSR">CSSR</option>
+                        <option value="XSF">XSF</option>
+                    </select>
+                </p>
+                <div id="drop-convert" class="dropbox">Drop file(s) here</div>
+            </form>
+        </div>
+        <div id="tabs-symmetry">
+            <p>Analyze the spacegroup of a crystal structure. Supported input formats are CIF, POSCAR, CSSR and Materials Project mson. File format is automatically detected from filename. The underlying analysis algorithms are provided by the excellent
+                <a href="http://spglib.sourceforge.net/">spglib</a> library.</p>
+            <form action="/matgenie/run/symmetry/" enctype="multipart/form-data" method="post" id="form-symmetry">
+                <p>Site tolerance (&#8491;):
+                    <input type="number" name="symprec" size="40" value="0.01">
+                </p>
+                <p>Angle tolerance (degrees):
+                    <input type="number" name="angle_tolerance" size="40" value="5">
+                </p>
+                <div id="drop-symmetry" class="dropbox">Drop file(s) here</div>
+            </form>
+        </div>
+        <div id="tabs-compare">
+            <p>Compare two structures for similarity using pymatgen's powerful StructureMatcher. "Anonymous" matching performed, i.e., even structures which have different elements can be matched and the elementals mapping result will be presented. Note
+                that structures are scaled to equal volume for matching, and default tolerances are used. Supported input formats are CIF, POSCAR, CSSR and Materials Project mson. File format is automatically detected from filename.</p>
+            <form action="/matgenie/rest/compare/" enctype="multipart/form-data" method="post">
+                <div id="drop-compare" class="dropbox">Drop 2-5 file(s) here</div>
+            </form>
+        </div>
+        <div id="tabs-xrd">
+            <p>Calculate XRD pattern. Only Cu Kalpha supported right now. Supported input formats are CIF, POSCAR, CSSR and Materials Project mson. File format is automatically detected from filename.</p>
+            <form action="/matgenie/rest/xrd" enctype="multipart/form-data" method="post" id="form-xrd">
+                <div id="drop-xrd" class="dropbox">Drop file(s) here</div>
+            </form>
+        </div>
+        <div id="tabs-surfaces">
+            <p>Generate all distinct surface slabs. Supported input formats are CIF, POSCAR, CSSR and Materials Project mson. File format is automatically detected from filename.</p>
+            <form action="/matgenie/rest/surfaces" enctype="multipart/form-data" method="post" id="form-surfaces">
+                <p>Miller index:
+                    <input type="text" name="miller" size="40" placeholder="e.g., 1, 0, 0">
+                </p>
+                <p>Vacuum size (&#8491;):
+                    <input type="number" name="vac-size" size="40" value=10>
+                </p>
+                <p>Slab size (&#8491;):
+                    <input type="number" name="slab-size" size="40" value="10">
+                </p>
+                <p>Output format:
+                    <select name="output-format">
+                        <option value="POSCAR" selected="selected">POSCAR</option>
+                        <option value="CIF">CIF</option>
+                        <option value="CSSR">CSSR</option>
+                        <option value="XSF">XSF</option>
+                    </select>
+                </p>
+                <div id="drop-surfaces" class="dropbox">Drop file for bulk structure here</div>
+            </form>
+        </div>
+    </div>
+    <p id="p-version">Running pymatgen v{{pmg_version}}</p>
+</div>
+
+
+<div id="div-results-wrapper" style="display: none">
+    <h3>Results</h3>
+    <div id="div-results"></div>
+</div>
+
+<div class="div-about">
+    <p>
+        <b>About</b>: matgenie is a materials analysis web app built on the <a href="http://www.pymatgen.org">Python Materials Genomics or pymatgen</a> library founded by Professor Ong. It demos the most commonly used capabilities of pymatgen. Please
+        use a relatively modern browser (e.g., recent Chrome, Safari or Firefox) supporting HTML5 for best results. For advanced usage, it is highly recommended that you install  pymatgen. If you use this web app extensively in your research, please cite the
+        following work:
+    </p>
+    <p id="p-citation">
+        Ong, S. P.; Richards, W. D.; Jain, A.; Hautier, G.; Kocher, M.; Cholia, S.; Gunter, D.; Chevrier, V. L.; Persson, K. A.; Ceder, G. Python Materials Genomics (pymatgen): A robust, open-source python library for materials analysis, Comput. Mater. Sci.,
+        2013, 68, 314–319,
+        <a href="http://dx.doi.org/:10.1016/j.commatsci.2012.10.028">doi:10.1016/j.commatsci.2012.10.028</a>
+    </p>
+    <p><b>Privacy</b>: We do not store any files or data on our server. Any uploaded files or data is analyzed and the results presented immediately. The only statistic collected is the number of times this page is accessed, which lets us know how useful
+        this resource is.
+    </p>
+</div>
+{% endblock content %}

@@ -1,0 +1,51 @@
+.button {
+    clear: both;
+}
+textarea {
+    width: 100%;
+    font-size: 1.1em;
+}
+#img-pymatgen {
+    height: 30px;
+    vertical-align: top;
+}
+.table-results {
+    width: 100%;
+}
+#div-main {
+    font-size: 0.9em;
+}
+#p-citation {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+.p-error {
+    color: red;
+}
+.dropbox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    border: 5px dashed #CCC;
+    font-family: Verdana;
+    text-align: center;
+}
+.sup-beta {
+    color: #990000;
+    font-style: italic;
+    font-size: 0.6em;
+}
+#p-version {
+    text-align: center;
+    font-size: 0.7em;
+}
+.div-subresult {
+    width: 100%;
+    text-align: center;
+}
+.div-about{
+  font-size: 0.8em;
+}

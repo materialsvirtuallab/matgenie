@@ -1,0 +1,164 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:regular,bold);
+
+body {
+    font-family: "Roboto","Tahoma","Verdana","Arial","sans-serif";
+    color: #454545;
+    min-width: 800px;
+}
+
+#navbar{
+    min-width: 800px;
+    position: fixed;
+    margin: -10px -10px 0px -10px;
+    background-color: #990000;
+    z-index: 1030;
+    width: 100%;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,.1);
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+
+#navbar-inner{
+    border: 0 solid #ddd;
+    border-bottom-width: 1px;
+}
+
+#content{
+    min-width: 800px;
+    max-width: 1600px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 40px;
+    font-size: 1.1em;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 3em;
+    text-align: center;
+    margin: 10px 0 0 0;
+    color: #111;
+}
+
+h2 {
+    clear: both;
+    font-weight: 200;
+    text-align: center;
+    font-size: 1.3em;
+    margin: 10px 0;
+    color: #990000;
+    padding: 5px 0;
+}
+
+h3 {
+    clear: both;
+    font-weight: 200;
+    text-align: left;
+    font-size: 1.3em;
+    margin: 10px 0;
+    color: #333;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#footer-div p{
+    clear: both;
+    /*border-top: 1px solid #ccc;*/
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+#main-div{
+    clear: both;
+    padding: 10px 10px;
+}
+
+/* Menu */
+
+#menu {
+    max-width: 1600px;
+    width: 80%;
+	height: 40px;
+	margin: 0 auto;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 5px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	display: inline;
+	text-align: center;
+}
+
+#main-link-img{
+    padding: 0;
+    margin: 0;
+}
+
+#menu a {
+	display: block;
+	float: left;
+    margin-top: -3px;
+	margin-right: 3px;
+	padding: 8px 10px 5px 10px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1em;
+	color: #ddd;
+}
+
+#menu img{
+    float: left;
+    width: 26px;
+    padding: 7px 10px 7px 20px;
+}
+
+#menu a:hover, #menu .active a {
+	color: #fff;
+}
+
+#right-menu{
+    float: right;
+}
+
+#right-menu a{
+    display: block;
+    float: left;
+    margin-top: -5px;
+    margin-right: 3px;
+    padding: 0px 10px 5px 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    color: #ddd;
+}
+
+a{
+    color: #cc0000;
+}
+
+a:visited {
+    color: #990000;
+}
+
+.emphasis{
+    font-weight: bold;
+}
+
+.announcement-sup{
+    color: #990000;
+    font-style: italic;
+}
+
+p{
+    text-align: justify;
+}
