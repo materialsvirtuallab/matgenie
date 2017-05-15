@@ -13,7 +13,7 @@ pymongo==3.4.0
 pylibmc==1.5.1
 django-pylibmc-sasl==0.2.4
 monty==0.9.8
-pymatgen==4.7.6
+pymatgen==3.5.3
 spglib==1.9.9.18
 requests_oauthlib==0.6.1
 scipy==0.15.1
