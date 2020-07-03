@@ -1,11 +1,11 @@
-Django==1.11.1
+Django>=1.11.29
 numpy==1.9.2
-PyYAML==3.12
+PyYAML>=4.2b1
 dj-database-url==0.3.0
 dj-static==0.0.5
 django-toolbelt==0.0.1
 pybtex==0.21
-requests==2.14.2
+requests>=2.20.0
 static==1.1.1
 wsgiref==0.1.2
 oauth2==1.9.0.post1
