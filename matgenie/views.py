@@ -14,8 +14,8 @@ try:
 except ImportError:
     from cStringIO import StringIO
 
-from pymatgen import Structure
-from pymatgen import __version__ as PYMATGEN_VERSION
+from pymatgen.core import Structure
+from pymatgen.core import __version__ as PYMATGEN_VERSION
 from pymatgen.io.vasp import Poscar
 from pymatgen.io.cif import CifParser, CifWriter
 from pymatgen.io.cssr import Cssr
