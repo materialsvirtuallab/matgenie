@@ -6,5 +6,5 @@ oauth2==1.9.0.post1
 pymongo==4.1.1
 pylibmc==1.5.1
 django-pylibmc-sasl==0.2.4
-pymatgen==2022.5.26
+pymatgen==2024.2.20
 requests_oauthlib==0.6.1
